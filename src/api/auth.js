@@ -26,4 +26,7 @@ export const getAllAdminNews = (params) => API.get("/news/get/all", { params });
 export const deleteNews = (id) => API.delete(`/news/${id}`);
 export const getAllLikes = () => API.get("/likes/likes/all");
 export const getUserById = (id) => API.get(`/users/${id}`);
-
+export const updateNews = (id, data) =>
+    API.patch(`/news/${id}`, data, {
+        headers: { "Content-Type": "multipart/form-data" },
+    });
