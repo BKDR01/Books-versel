@@ -66,7 +66,7 @@ const FormBlock = ({
             optionLabel="label"
             optionValue="value"
             placeholder="Select Language"
-            className="w-[150px] bg-[#F4F5F9] border border-[#DBDCDE] rounded-[8px]"
+            className="w-[150px] bg-[#F4F5F9] border py-[13px] px-[5px] border-[#DBDCDE] rounded-[8px]"
           />
         </label>
 
@@ -188,63 +188,61 @@ const FormBlock = ({
             </p>
           </label>
         </div>
-        {files[index] && (
-          <div className="mt-4 grid grid-cols-2 gap-4">
-            {["image", "file"].map(
-              (type) =>
-                files[index][type] && (
-                  <div
-                    key={type}
-                    className="flex items-center gap-4 p-3 border rounded-lg bg-white shadow-sm relative group"
-                  >
-                    {/* Превью или иконка */}
-                    {type === "image" ? (
-                      <img
-                        src={URL.createObjectURL(files[index][type])}
-                        alt="preview"
-                        className="w-16 h-16 object-cover rounded"
-                      />
-                    ) : (
-                      <div className="w-16 h-16 flex items-center justify-center bg-red-100 rounded">
-                        <span className="text-red-600 font-bold text-lg">
-                          PDF
-                        </span>
-                      </div>
-                    )}
+       {files[index] && (
+  <div className="mt-4 grid grid-cols-2 gap-4">
+    {['image', 'file'].map((type) => (
+      files[index][type] && (
+        <div
+          key={type}
+          className="flex items-center gap-4 p-3 border rounded-lg bg-white shadow-sm relative group"
+        >
+          {/* Превью или иконка */}
+          {type === 'image' ? (
+            <img
+              src={URL.createObjectURL(files[index][type])}
+              alt="preview"
+              className="w-16 h-16 object-cover rounded"
+            />
+          ) : (
+            <div className="w-16 h-16 flex items-center justify-center bg-red-100 rounded">
+              <span className="text-red-600 font-bold text-lg">PDF</span>
+            </div>
+          )}
 
-                    {/* Информация о файле */}
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900 truncate">
-                        {files[index][type].name}
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        {(files[index][type].size / 1024).toFixed(0)} Kb
-                      </p>
+          {/* Информация о файле */}
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium text-gray-900 truncate">
+              {files[index][type].name}
+            </p>
+            <p className="text-xs text-gray-500">
+              {(files[index][type].size / 1024).toFixed(0)} Kb
+            </p>
 
-                      {/* Прогресс (пока статично 80%) */}
-                      <div className="flex items-center gap-2 mt-1">
-                        <div className="w-full bg-gray-200 h-2 rounded">
-                          <div
-                            className="bg-green-500 h-2 rounded"
-                            style={{ width: "80%" }}
-                          ></div>
-                        </div>
-                        <span className="text-xs text-gray-600">80%</span>
-                      </div>
-                    </div>
-
-                    {/* Крестик удалить */}
-                    <button
-                      onClick={() => handleFileRemove(index, type)}
-                      className="absolute top-1 right-1 bg-black/50 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition"
-                    >
-                      ✖
-                    </button>
-                  </div>
-                )
-            )}
+            {/* Прогресс (пока статично 80%) */}
+            <div className="flex items-center gap-2 mt-1">
+              <div className="w-full bg-gray-200 h-2 rounded">
+                <div
+                  className="bg-green-500 h-2 rounded"
+                  style={{ width: "80%" }}
+                ></div>
+              </div>
+              <span className="text-xs text-gray-600">80%</span>
+            </div>
           </div>
-        )}
+
+          {/* Крестик удалить */}
+          <button
+            onClick={() => handleFileRemove(index, type)}
+            className="absolute top-1 right-1 bg-black/50 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition"
+          >
+            ✖
+          </button>
+        </div>
+      )
+    ))}
+  </div>
+)}
+
       </div>
     </div>
   );

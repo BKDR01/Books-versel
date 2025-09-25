@@ -47,15 +47,13 @@ const Book = () => {
   };
 
   return (
-    <div className="w-[100%] mx-auto p-5 space-y-6 border">
-      <h1 className="text-2xl font-bold text-center">kitoblar ro'yhati</h1>
-
+    <div className="w-[100%] mx-auto p-5 rele">
       <div className='w-full flex justify-end items-center'>
         <button
           onClick={() => setIsAdding(true)}
           className='p-2 bg-green-500 rounded-md text-white'
         >
-          Добавить +
+          Add Book +
         </button>
       </div>
 
@@ -70,15 +68,15 @@ const Book = () => {
         </div>
       )}
 
-      {editingBookId && (
-        <div className="bg-opacity-50 flex items-center justify-center">
-          <EditBook
-            bookId={editingBookId}
-            onClose={() => setEditingBookId(null)}
-            onUpdate={fetchBooks}
-          />
-        </div>
-      )}
+        {editingBookId && (
+          <div className="flex items-center justify-center fixed top-[0px] bg-black/10 bg-opacity-50">
+            <EditBook
+              bookId={editingBookId}
+              onClose={() => setEditingBookId(null)}
+              onUpdate={fetchBooks}
+            />
+          </div>
+        )}
 
       <div className='w-[750px] mt-[50px] mx-auto flex-wrap gap-[10px] p-2'>
         {books.map((book) => (

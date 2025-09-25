@@ -129,8 +129,8 @@ function EditBook({ bookId, onClose, onUpdate }) {
   return (
     <div className="w-[750px] h-[950px] p-[30px] rounded-[8px] bg-white shadow-[0_0_4px_0_#00000026] mx-auto font-[Lato]">
       <div>
-        <h2 className="text-[20px] font-medium">Редактировать книгу</h2>
-        <p className="text-[12.64px] text-[#89868D] mt-[10px]">Измените данные книги</p>
+        <h2 className="text-[20px] font-medium">Edit Book</h2>
+        <p className="text-[12.64px] text-[#89868D] mt-[10px]">Edit book data</p>
       </div>
 
       <FormBlock
